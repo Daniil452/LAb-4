@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="AvaloniaDatabase.MainWindow"
+        Title="AvaloniaDatabase"
+        Width="500" Height="600"
+        WindowStartupLocation="CenterScreen">
+
+    <DockPanel Margin="20">
+			<Label Content ="Name:" DockPanel.Dock ="Top" HorizontalAlignment="Left"/>
+			<TextBox DockPanel.Dock = "Top" HorizontalAlignment="Left" Name ="Name1"/>
+					<Button
+				DockPanel.Dock="Bottom"
+				HorizontalAlignment="Center"
+				Click="Button_Send">
+				Отправить
+			</Button>
+					<TextBox DockPanel.Dock = "Bottom" HorizontalAlignment="Center" Name ="Text1"/>
+			<Label Content ="Message:" DockPanel.Dock ="Bottom" HorizontalAlignment="Center"/>
+
+
+			<ItemsControl Items="{Binding Table}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock
+                            Foreground="green"
+                            Margin="5"
+                            Text="{Binding name}" />
+                        <TextBlock
+                            Foreground="blue"
+                            Margin="5"
+                            Text="{Binding text}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DockPanel>
+</Window>
